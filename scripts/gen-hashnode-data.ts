@@ -4,7 +4,7 @@ import readingTime from "reading-time";
 
 const HASHNODE_DATA_FILE_PATH = "./data/hashnode.json";
 const HASHNODE_API_URL = "https://api.hashnode.com/";
-const HASHNODE_USERNAME = "AnishDe12020";
+const HASHNODE_USERNAME = "waitingwittykitty";
 
 const main = async () => {
   const query = `

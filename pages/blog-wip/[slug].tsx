@@ -6,7 +6,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "@/components/Common/MDXComponents";
 import CustomGiscus from "@/components/Shared/CustomGiscus";
 
-import AvatarJPG from "public/static/images/avatar.jpg";
+import AvatarJPG from "public/static/images/avatar.png";
 import { NextSeo } from "next-seo";
 
 interface BlogPostPageProps {
@@ -41,7 +41,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
               className="rounded-full"
             />
           </div>
-          <p>Anish De</p>
+          <p>Harry Schiller</p>
           <span aria-hidden>/</span>
           <p>{blogPost.date}</p>
         </div>

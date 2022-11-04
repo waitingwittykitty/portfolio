@@ -22,8 +22,8 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
   return (
     <>
       <NextSeo
-        title="Projects | Anish De"
-        description="Projects worked upon by Anish De"
+        title="Projects | Harry Schiller"
+        description="Projects worked upon by Harry Schiller"
       />
       <h1 className="mb-8 text-2xl font-bold">Projects</h1>
       <div className="flex-col space-y-8">
@@ -41,7 +41,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
         ))}
       </div>
       <Link
-        href="https://github.com/stars/AnishDe12020/lists/projects"
+        href="https://github.com/stars/waitingwittykitty/lists/projects"
         className="group mt-8 flex flex-row items-center justify-start space-x-2 text-xl font-medium"
         noExternalLinkIcon
       >

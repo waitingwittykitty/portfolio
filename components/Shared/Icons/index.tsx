@@ -1,4 +1,5 @@
 export { default as CommandIcon } from "./Command";
+export { default as DiscordLogo } from "./Discord";
 export { default as Twitterlogo } from "./Twitter";
 export { default as NextJSLogo } from "./NextJS";
 export { default as GitHubLogo } from "./GitHub";
@@ -13,5 +14,8 @@ export { default as YouTubeLogo } from "./YouTube";
 export { default as HashnodeLogo } from "./Hashnode";
 export { default as DevToLogo } from "./DevTo";
 export { default as TwNFTLogo } from "./TwNFT";
+export { default as StackoverflowLogo } from "./Stackoverflow";
 export { default as StorliLogo } from "./Storli";
 export { default as SecliLogo } from "./Secli";
+export { default as XingLogo } from "./Xing";
+export { default as ApptomatorLogo } from "./Apptomator";

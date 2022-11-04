@@ -31,6 +31,28 @@ export const CloudinaryImage = defineNestedType(() => ({
   },
 }));
 
+export const CloudinaryVideo = defineNestedType(() => ({
+  name: "CloudinaryVideo",
+  displayName: "Cloudinary Video",
+  fields: {
+    height: {
+      type: "number",
+      description: "Height of the Video",
+      required: true,
+    },
+    width: {
+      type: "number",
+      description: "Width of the Video",
+      required: true,
+    },
+    url: {
+      type: "string",
+      description: "URL of the Video",
+      required: true,
+    },
+  },
+}));
+
 export const Proof = defineNestedType(() => ({
   name: "Proof",
   displayName: "Proof",
@@ -82,6 +104,11 @@ export const Project = defineDocumentType(() => ({
       type: "nested",
       description: "Image for the project",
       of: CloudinaryImage,
+    },
+    video: {
+      type: "nested",
+      description: "Video for the project",
+      of: CloudinaryVideo,
     },
   },
   computedFields: {

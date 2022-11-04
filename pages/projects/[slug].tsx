@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import NextImage from "next/image";
+import ReactPlayer from "react-player";
 
 import Link from "@/components/Shared/Link";
 import { allProjects, Project } from "contentlayer/generated";
@@ -26,20 +27,20 @@ const SkillPage: NextPage<ProjectPageProps> = ({
   return (
     <>
       <NextSeo
-        title={`${project.name} | Anish De`}
+        title={`${project.name} | Harry Schiller`}
         description={project.description}
         openGraph={{
-          url: `https://anishde.dev/projects/${project.slug}`,
-          title: `${project.name} | Anish De`,
+          url: `https://hryschiller.dev/projects/${project.slug}`,
+          title: `${project.name} | Harry Schiller`,
           description: project.description,
-          images: [
+          images: project.image ? [
             {
               url: project.image.url,
               width: project.image.width,
               height: project.image.height,
               alt: project.name,
             },
-          ],
+          ] : [],
         }}
       />
       <div className="mt-8 flex space-x-8">
@@ -68,14 +69,28 @@ const SkillPage: NextPage<ProjectPageProps> = ({
       </div>
 
       <div className="mt-16 overflow-hidden rounded-2xl border-[1px] border-tertiary p-0 shadow-md">
-        <NextImage
-          width={project.image.width}
-          height={project.image.height}
-          src={project.image.url}
-          placeholder="blur"
-          blurDataURL={projectImagePreview}
-          alt={project.name}
-        />
+        {project.image && (
+          <NextImage
+            width={project.image.width}
+            height={project.image.height}
+            src={project.image.url}
+            placeholder="blur"
+            blurDataURL={projectImagePreview}
+            alt={project.name}
+          />
+        )}
+
+        {project.video && (
+          <ReactPlayer
+            width={project.video.width}
+            height={project.video.height}
+            url={project.video.url}
+            placeholder="blur"
+            blurDataURL={projectImagePreview}
+            alt={project.name}
+            controls
+          />
+        )}
       </div>
 
       <article>
@@ -93,7 +108,7 @@ const SkillPage: NextPage<ProjectPageProps> = ({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const project = allProjects.find(project => project.slug === params.slug);
 
-  const projectImagePreview = await getPreviewImageUrl(project.image.url);
+  const projectImagePreview = project.image ? await getPreviewImageUrl(project.image.url) : null;
 
   return {
     props: {

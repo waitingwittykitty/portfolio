@@ -18,7 +18,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogPosts }) => {
     <>
       <Hero />
       <Projects />
-      <BlogPosts posts={blogPosts} domain={hashnodeData.domain} />
+      {/* <BlogPosts posts={blogPosts} domain={hashnodeData.domain} /> */}
       <Contact />
     </>
   );

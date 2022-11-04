@@ -70,7 +70,6 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.3.2",
     "rehype-slug": "^5.0.1",
-    "sharp": "^0.30.7",
     "shiki": "^0.10.1",
     "zustand": "^4.0.0-rc.1"
   }
