@@ -14,7 +14,7 @@ const GuestBookPage: NextPage = () => {
       <div className="mt-16">
         <Giscus
           id="comments"
-          repo="waitingwittykitty/portfolio"
+          repo="waitingwittykitty/harry-stage"
           repoId="R_kgDOGfn4eQ"
           category="Comments"
           categoryId="DIC_kwDOGfn4ec4CO-cF"
