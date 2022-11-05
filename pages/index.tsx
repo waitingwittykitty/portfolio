@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 
 import Hero from "@/components/Home/Hero";
 import Projects from "@/components/Home/Projects";
-import BlogPosts from "@/components/Home/BlogPosts";
+// import BlogPosts from "@/components/Home/BlogPosts";
 
 import hashnodeData from "@/data/hashnode.json";
 import getPreviewImageUrl from "@/utils/getPreviewImageURL";

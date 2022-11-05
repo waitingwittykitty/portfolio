@@ -36,6 +36,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
             githubLink={project.githubLink}
             slug={project.slug}
             image={project.image}
+            video={project.video}
             placeholderImage={project.placeholderImage}
           />
         ))}
@@ -56,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const allProjectsWithPlaceholderImages = [];
 
   for (const project of allProjects) {
-    const previewUrl = await getPreviewImageUrl(project.image.url);
+    const previewUrl = project.image ? await getPreviewImageUrl(project.image.url) : null;
 
     allProjectsWithPlaceholderImages.push({
       ...project,

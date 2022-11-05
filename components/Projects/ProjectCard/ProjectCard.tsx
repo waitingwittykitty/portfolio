@@ -1,8 +1,9 @@
 import NextImage from "next/image";
+import ReactPlayer from "react-player";
 
 import { cleanLink, getGitHubOwnerAndRepoFromLink } from "@/utils/helpers";
 import Link from "@/components/Shared/Link";
-import { CloudinaryImage } from "contentlayer/generated";
+import { CloudinaryImage, CloudinaryVideo } from "contentlayer/generated";
 import { GitHubLogo } from "@/components/Shared/Icons";
 import { forwardRef } from "react";
 
@@ -13,6 +14,7 @@ interface ProjectProps {
   link: string;
   githubLink: string;
   image: CloudinaryImage;
+  video: CloudinaryVideo;
   placeholderImage: string;
 }
 
@@ -23,6 +25,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
       name,
       description,
       image,
+      video,
       link,
       githubLink,
       placeholderImage,
@@ -37,14 +40,28 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
         <div className="overflow-hidden rounded-lg md:w-72">
           <Link href={`/projects/${slug}`}>
             <div className="relative h-36 w-full transition duration-200 hover:opacity-60 md:h-full md:w-72">
-              <NextImage
-                src={image.url}
-                alt={name}
-                className="rounded-xl"
-                layout="fill"
-                placeholder="blur"
-                blurDataURL={placeholderImage}
-              />
+              {image && (
+                <NextImage
+                  className="rounded-xl"
+                  layout="fill"
+                  src={image.url}
+                  placeholder="blur"
+                  blurDataURL={placeholderImage}
+                  alt={name}
+                />
+              )}
+
+              {video && (
+                <ReactPlayer
+                  className="rounded-xl"
+                  layout="fill"
+                  url={video.url}
+                  placeholder="blur"
+                  blurDataURL={placeholderImage}
+                  alt={name}
+                  controls
+                />
+              )}
             </div>
           </Link>
         </div>

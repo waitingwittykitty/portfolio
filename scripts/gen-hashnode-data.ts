@@ -51,7 +51,7 @@ query($username: String!, $page: Int!) {
       data: { data },
     } = res;
 
-    if (data.user.publication.posts.length === 0) {
+    if (!data?.user?.publication || data.user.publication.posts.length === 0) {
       domain = data.user.publicationDomain;
       didNotGetData = false;
       break;
