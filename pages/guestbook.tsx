@@ -15,9 +15,9 @@ const GuestBookPage: NextPage = () => {
         <Giscus
           id="comments"
           repo="waitingwittykitty/harry-stage"
-          repoId="R_kgDOGfn4eQ"
+          repoId="R_kgDOIX8_Yg"
           category="Comments"
-          categoryId="DIC_kwDOGfn4ec4CO-cF"
+          categoryId="DIC_kwDOIX8_Ys4CSZSz"
           mapping="specific"
           term="GuestBook"
           reactionsEnabled="1"
