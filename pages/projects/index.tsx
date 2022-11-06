@@ -42,7 +42,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
         ))}
       </div>
       <Link
-        href="https://github.com/stars/waitingwittykitty/lists/projects"
+        href="https://github.com/waitingwittykitty?tab=repositories"
         className="group mt-8 flex flex-row items-center justify-start space-x-2 text-xl font-medium"
         noExternalLinkIcon
       >
