@@ -1,6 +1,6 @@
 # Harry Stage 🏛
 
-This is my portfolio site built with [Next.js](https://nextjs.org), [TailwindCSS](https://tailwindcss.com), [Contentlayer](https://www.contentlayer.dev/), and has been deploy on [Vercel](https://vercel.com).
+This is my portfolio site built with [Next.js](https://nextjs.org), [TailwindCSS](https://tailwindcss.com), [Contentlayer](https://www.contentlayer.dev/), and has been deploy on [Heroku](https://dashboard.heroku.com).
 
 It is not only a portfolio but the data center of my professional career.
 ## Contributing
