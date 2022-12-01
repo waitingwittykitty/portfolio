@@ -8,6 +8,7 @@ import CustomGiscus from "@/components/Shared/CustomGiscus";
 
 import AvatarJPG from "public/static/images/avatar.png";
 import { NextSeo } from "next-seo";
+import { format, parseISO } from "date-fns";
 
 interface BlogPostPageProps {
   blogPost: BlogPost;
@@ -43,7 +44,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
           </div>
           <p>Harry Schiller</p>
           <span aria-hidden>/</span>
-          <p>{blogPost.date}</p>
+          <p>{format(parseISO(blogPost.date), "PPP")}</p>
         </div>
         <div className="flex items-center space-x-2">
           <p>{blogPost.wordCount} words</p>

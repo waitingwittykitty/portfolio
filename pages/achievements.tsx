@@ -9,7 +9,6 @@ interface AchievementPageProps {
 }
 
 const AchievementsPage: NextPage<AchievementPageProps> = ({ achievements }) => {
-  console.log(achievements);
   return (
     <>
       <NextSeo
@@ -18,7 +17,7 @@ const AchievementsPage: NextPage<AchievementPageProps> = ({ achievements }) => {
       />
       <h1 className="mb-8 text-2xl font-bold">Achievements</h1>
       <div className="flex flex-col space-y-8">
-        {achievements.map(({ id, title, content, date, proof, prizeValue }) => (
+        {achievements.map(({ id, title, content, date, proof, prizeValue, image }) => (
           <AchievementCard
             key={id}
             title={title}
@@ -26,6 +25,7 @@ const AchievementsPage: NextPage<AchievementPageProps> = ({ achievements }) => {
             date={date}
             proof={proof}
             prizeValue={prizeValue}
+            image={image}
           />
         ))}
       </div>
@@ -41,7 +41,8 @@ export const getStaticProps: GetStaticProps = async () => {
     date: achievement.date ?? null,
     prizeValue: achievement.prizeValue ?? null,
     proof: achievement.proof ?? null,
-  }));
+    image: achievement.image ?? null,
+  })).sort((a, b) => b.date.localeCompare(a.date));
 
   return {
     props: { achievements: cleanedAchievements },

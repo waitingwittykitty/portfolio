@@ -13,6 +13,7 @@ import {
   TwNFTLogo,
   SecliLogo,
   ApptomatorLogo,
+  MetaVirusLogo,
 } from ".";
 import StorliLogo from "./Storli";
 
@@ -49,6 +50,8 @@ const IconFactory = ({
       return <SecliLogo {...otherProps} />;
     case "apptomator":
       return <ApptomatorLogo {...otherProps} />;
+    case "metavirus":
+      return <MetaVirusLogo {...otherProps} />;
     default:
       return <X />;
   }

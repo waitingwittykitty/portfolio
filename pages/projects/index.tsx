@@ -27,7 +27,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
       />
       <h1 className="mb-8 text-2xl font-bold">Projects</h1>
       <div className="flex-col space-y-8">
-        {allProjectsWithPlaceholderImages.map((project, index) => (
+        {allProjectsWithPlaceholderImages.map(project => (
           <ProjectCard
             key={project._id}
             name={project.name}
@@ -37,6 +37,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
             slug={project.slug}
             image={project.image}
             video={project.video}
+            badges={project.badges}
             placeholderImage={project.placeholderImage}
           />
         ))}

@@ -1,14 +1,13 @@
 import BlogPostCard from "@/components/Blog/BlogPostCard";
 import Link from "@/components/Shared/Link";
+import { BlogPost } from "contentlayer/generated";
 import { ArrowRight } from "react-feather";
-import { HashnodePostWithPlaceHolderImage } from "types/hashnode";
 
 interface BlogPostsProps {
-  posts: HashnodePostWithPlaceHolderImage[];
-  domain: string;
+  posts: BlogPost[];
 }
 
-const BlogPosts = ({ posts, domain }: BlogPostsProps): JSX.Element => {
+const BlogPosts = ({ posts }: BlogPostsProps): JSX.Element => {
   return (
     <>
       <h2 className="mb-8 text-3xl font-bold">Blog Posts</h2>
@@ -17,11 +16,10 @@ const BlogPosts = ({ posts, domain }: BlogPostsProps): JSX.Element => {
           <BlogPostCard
             key={post._id}
             title={post.title}
-            image={post.coverImage}
-            placeholderImage={post.placeholderImage}
-            date={post.dateAdded}
+            image={post.image}
+            date={post.date}
             readingTime={post.readingTime.text}
-            url={`https://${domain}/${post.slug}`}
+            slug={post.slug}
           />
         ))}
       </div>

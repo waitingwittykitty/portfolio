@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import NextImage from "next/image";
 import ReactPlayer from "react-player";
+import cx from "classnames";
 
 import Link from "@/components/Shared/Link";
 import { allProjects, Project } from "contentlayer/generated";
@@ -18,19 +19,19 @@ interface ProjectPageProps {
   projectImagePreview: string;
 }
 
-const SkillPage: NextPage<ProjectPageProps> = ({
+const ProjectPage: NextPage<ProjectPageProps> = ({
   project,
   projectImagePreview,
 }) => {
   const ProjectMDX = useMDXComponent(project.body.code);
 
   return (
-    <>
+    <div>
       <NextSeo
         title={`${project.name} | Harry Schiller`}
         description={project.description}
         openGraph={{
-          url: `https://hryschiller.dev/projects/${project.slug}`,
+          url: `https://harry-stage.vercel.app/projects/${project.slug}`,
           title: `${project.name} | Harry Schiller`,
           description: project.description,
           images: project.image ? [
@@ -38,6 +39,14 @@ const SkillPage: NextPage<ProjectPageProps> = ({
               url: project.image.url,
               width: project.image.width,
               height: project.image.height,
+              alt: project.name,
+            },
+          ] : [],
+          videos: project.video ? [
+            {
+              url: project.video.url,
+              width: project.video.width,
+              height: project.video.height,
               alt: project.name,
             },
           ] : [],
@@ -66,6 +75,23 @@ const SkillPage: NextPage<ProjectPageProps> = ({
             {getGitHubOwnerAndRepoFromLink(project.githubLink)}
           </Link>
         )}
+      </div>
+
+      <div className="mt-6 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
+        {project.badges && project.badges.map(badge => (
+          <div
+            className={cx(
+              "bg-black px-2 py-0 rounded-md border border-tertiary",
+              {
+                "text-green-400": badge === "Production",
+                "text-blue-400": badge === "Development"
+              }
+            )}
+            key={badge}
+          >
+            {badge}
+          </div>
+        ))}
       </div>
 
       <div className="mt-16 overflow-hidden rounded-2xl border-[1px] border-tertiary p-0 shadow-md">
@@ -101,7 +127,7 @@ const SkillPage: NextPage<ProjectPageProps> = ({
           <CustomGiscus term={`project: ${project.name}`} />
         </div>
       </article>
-    </>
+    </div>
   );
 };
 
@@ -129,4 +155,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default SkillPage;
+export default ProjectPage;

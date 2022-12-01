@@ -10,7 +10,7 @@ const Hero = (): JSX.Element => {
           Harry Schiller
         </h1>
         <h2 className="will-change-opacity text-lg font-medium text-gray-400 will-change-transform">
-          Fullstack Web Developer • Web3 Enthusiast • Hacker • Tech Enthusiast
+          Fullstack Web Developer • Web3 Enthusiast • Blogger • Tech Enthusiast
         </h2>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
           He is a promising web developer who has shown outstanding talent in the web development field for 7 years.
