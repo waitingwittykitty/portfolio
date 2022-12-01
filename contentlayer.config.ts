@@ -110,6 +110,11 @@ export const Project = defineDocumentType(() => ({
       description: "Video for the project",
       of: CloudinaryVideo,
     },
+    badges: {
+      type: "list",
+      description: "Badges for the project",
+      of: { type: "string" },
+    }
   },
   computedFields: {
     slug: {
@@ -176,7 +181,7 @@ export const Achievement = defineDocumentType(() => ({
       required: true,
     },
     date: {
-      type: "date",
+      type: "string",
       description: "The date when the achievement was achieved",
       required: false,
     },
@@ -188,6 +193,11 @@ export const Achievement = defineDocumentType(() => ({
     proof: {
       type: "nested",
       of: Proof,
+    },
+    image: {
+      type: "nested",
+      description: "Image for the achievement",
+      of: CloudinaryImage,
     },
   },
   computedFields: {

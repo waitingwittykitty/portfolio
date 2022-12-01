@@ -1,5 +1,6 @@
 import NextImage from "next/image";
 import ReactPlayer from "react-player";
+import cx from "classnames";
 
 import { cleanLink, getGitHubOwnerAndRepoFromLink } from "@/utils/helpers";
 import Link from "@/components/Shared/Link";
@@ -15,6 +16,7 @@ interface ProjectProps {
   githubLink: string;
   image: CloudinaryImage;
   video: CloudinaryVideo;
+  badges: string[];
   placeholderImage: string;
 }
 
@@ -29,14 +31,34 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
       link,
       githubLink,
       placeholderImage,
+      badges,
     }: ProjectProps,
     ref
   ): JSX.Element => {
     return (
       <div
-        className="flex flex-col space-y-8 rounded-xl border-[1px] border-tertiary bg-secondary/50 p-4 md:h-48 md:flex-row md:space-y-0 md:space-x-8"
+        className={cx(
+          "flex flex-col space-y-8 rounded-xl border border-tertiary bg-secondary/50",
+          "p-4 md:h-48 md:flex-row md:space-y-0 md:space-x-8 group relative"
+        )}
         ref={ref}
       >
+        <div className="hidden group-hover:flex absolute right-2 top-0 gap-2 -translate-y-1/2">
+          {badges && badges.map(badge => (
+            <div
+              className={cx(
+                "bg-black px-2 py-0 rounded-md border border-tertiary",
+                {
+                  "text-green-400": badge === "Production",
+                  "text-blue-400": badge === "Development"
+                }
+              )}
+              key={badge}
+            >
+              {badge}
+            </div>
+          ))}
+        </div>
         <div className="overflow-hidden rounded-lg md:w-72">
           <Link href={`/projects/${slug}`}>
             <div className="relative h-36 w-full transition duration-200 hover:opacity-60 md:h-full md:w-72">
@@ -53,13 +75,11 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
 
               {video && (
                 <ReactPlayer
+                  width="100%"
+                  height="100%"
                   className="rounded-xl"
-                  layout="fill"
                   url={video.url}
-                  placeholder="blur"
-                  blurDataURL={placeholderImage}
                   alt={name}
-                  controls
                 />
               )}
             </div>
@@ -81,7 +101,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
                 </Link>
               )}
               {githubLink && (
-                <Link href={githubLink} icon={<GitHubLogo />} noHighlight>
+                <Link className="truncate" href={githubLink} icon={<GitHubLogo />} noHighlight>
                   {getGitHubOwnerAndRepoFromLink(githubLink)}
                 </Link>
               )}

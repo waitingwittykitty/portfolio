@@ -11,4 +11,4 @@ const fadeInVariant: Variants = {
   },
 };
 
-export {fadeInVariant}
+export { fadeInVariant }

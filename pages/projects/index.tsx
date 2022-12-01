@@ -37,6 +37,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
             slug={project.slug}
             image={project.image}
             video={project.video}
+            badges={project.badges}
             placeholderImage={project.placeholderImage}
           />
         ))}
