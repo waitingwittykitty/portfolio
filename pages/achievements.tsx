@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async () => {
     prizeValue: achievement.prizeValue ?? null,
     proof: achievement.proof ?? null,
     image: achievement.image ?? null,
-  })).sort((a, b) => a.date.localeCompare(b.date));
+  })).sort((a, b) => b.date.localeCompare(a.date));
 
   return {
     props: { achievements: cleanedAchievements },
