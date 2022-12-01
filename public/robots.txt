@@ -4,6 +4,3 @@ Allow: /
 
 User-agent: *
 Disallow: /revalidate
-
-User-agent: *
-Disallow: /blog-wip

@@ -1,9 +1,8 @@
 ---
 title: "Cryptography with Python using Fernet"
-date: "2021-04-10"
-cannonicalURL: "https://blog.hryschiller.dev/cryptography-with-python-using-fernet"
+date: 2021-09-18
 image:
-  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1618046247940%2FJiNf1vAbR.png"
+  url: "/static/images/blog/encryption.jpg"
   height: "1080"
   width: "1920"
 ---
@@ -59,11 +58,12 @@ Now let us take the message we are going to encode as user input and encode it t
 message = input("Message: ").encode() # Takes the message as user input and encodes it
 ```
 
-Now we need to write are top secret key to the key file. We are going to run this only once and then comment the line out because we don't want it to write a new key down every time the code is run. 
+Now we need to write are top secret key to the key file. We are going to run this only once and then comment the line out because we don't want it to write a new key down every time the code is run.
 
 ```python
 write_key() # Writes the key to the key file
 ```
+
 Now we need to load the key i.e. read the key from the key file and store it in a variable called as `key` though you can name it whatever you want
 
 ```python
@@ -84,26 +84,13 @@ encrypted_message = f.encrypt(message)
 print(encrypted_message)
 ```
 
-Output:
-
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1618045556166/NkVXFrg-7.png)
-
 You see that the encrypted message cannot be understood by anyone so it is safe now and will be the same unless decrypted with the same key
 
 To decrypt, it is a very similar process
+
 ```python
 decrypted_message = f.decrypt(encrypred_message)
 print(decrypted_message)
 ```
 
-Output:
-
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1618045676137/GQuPm-UeO.png)
 So here, first the message is encrypted and is printed out and then we decrypt it and print it in the next line. If the initial message and the decrypted message are the exact same, our code has worked!!!
-
-So that was it for this tiny blog (and it was my first blog ever so leave down some feedback!!!)
-
-# Video Tutorial:
-[Link](https://youtu.be/P2k4f1tu-ss)
-
-%[https://www.youtube.com/watch?v=P2k4f1tu-ss]

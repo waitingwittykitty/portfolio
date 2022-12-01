@@ -1,0 +1,39 @@
+---
+title: How to use list in Contentlayer
+date: 2021-04-10
+image:
+  url: /static/images/blog/list_in_contentlayer.png
+  height: "1080"
+  width: "1920"
+---
+
+A list is an array of values that can be either strings or nested objects.
+
+### Options:
+
+- default (array): A list of default values.
+- of (NestedType): A nested document type definition.
+
+### Example:
+
+```js
+defineDocumentType(() => ({
+  // ...
+  fields: {
+    tags: {
+      type: "list",
+      of: { type: "string" }
+    }
+  }
+}));
+```
+
+The default list type expects an array of strings, like this:
+
+```md
+---
+tags:
+  - My First Tag
+  - Another Tag
+---
+```

@@ -1,34 +1,27 @@
 import { GetStaticProps, NextPage } from "next";
 
-import hashnodeData from "@/data/hashnode.json";
+import { allBlogPosts, BlogPost } from "contentlayer/generated";
 import BlogPostCard from "@/components/Blog/BlogPostCard";
-import getPreviewImageUrl from "@/utils/getPreviewImageURL";
-import { HashnodePostWithPlaceHolderImage } from "types/hashnode";
 import { NextSeo } from "next-seo";
 
 interface BlogPostsPageProps {
-  posts: HashnodePostWithPlaceHolderImage[];
+  posts: BlogPost[];
 }
 
 const BlogPostsPage: NextPage<BlogPostsPageProps> = ({ posts }) => {
   return (
     <>
-      <NextSeo
-        title="Blog Posts | Harry Schiller"
-        description="Blog written on https://blog.hryschiller.dev by Harry Schiller"
-      />
+      <NextSeo nofollow={true} noindex={true} />
       <h1 className="mb-8 text-2xl font-bold">Blog Posts</h1>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {posts.map(post => (
           <BlogPostCard
             key={post._id}
             title={post.title}
-            image={post.coverImage}
-            placeholderImage={post.placeholderImage}
-            date={post.dateAdded}
+            image={post.image}
+            slug={post.slug}
+            date={post.date}
             readingTime={post.readingTime.text}
-            excerpt={post.brief}
-            url={`https://${hashnodeData.domain}/${post.slug}`}
           />
         ))}
       </div>
@@ -37,20 +30,12 @@ const BlogPostsPage: NextPage<BlogPostsPageProps> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = hashnodeData.posts;
-
-  const allProjectsWithPlaceholerImages = [];
-
-  for (const post of posts) {
-    const previewUrl = await getPreviewImageUrl(post.coverImage);
-    allProjectsWithPlaceholerImages.push({
-      ...post,
-      placeholderImage: previewUrl,
-    });
-  }
+  const posts = allBlogPosts.sort((a, b) => b.date.localeCompare(a.date));
 
   return {
-    props: { posts: allProjectsWithPlaceholerImages },
+    props: {
+      posts,
+    },
   };
 };
 

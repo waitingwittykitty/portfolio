@@ -1,16 +1,14 @@
 import type { GetStaticProps, NextPage } from "next";
 
+import { allBlogPosts, BlogPost } from "contentlayer/generated";
 import Hero from "@/components/Home/Hero";
 import Projects from "@/components/Home/Projects";
-// import BlogPosts from "@/components/Home/BlogPosts";
+import BlogPosts from "@/components/Home/BlogPosts";
 
-import hashnodeData from "@/data/hashnode.json";
-import getPreviewImageUrl from "@/utils/getPreviewImageURL";
-import { HashnodePostWithPlaceHolderImage } from "types/hashnode";
 import Contact from "@/components/Home/Contact";
 
 interface HomePageProps {
-  blogPosts: HashnodePostWithPlaceHolderImage[];
+  blogPosts: BlogPost[];
 }
 
 const HomePage: NextPage<HomePageProps> = ({ blogPosts }) => {
@@ -18,27 +16,19 @@ const HomePage: NextPage<HomePageProps> = ({ blogPosts }) => {
     <>
       <Hero />
       <Projects />
-      {/* <BlogPosts posts={blogPosts} domain={hashnodeData.domain} /> */}
+      <BlogPosts posts={blogPosts} />
       <Contact />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = hashnodeData.posts;
-
-  const allProjectsWithPlaceholerImages = [];
-
-  for (const post of posts) {
-    const previewUrl = await getPreviewImageUrl(post.coverImage);
-    allProjectsWithPlaceholerImages.push({
-      ...post,
-      placeholderImage: previewUrl,
-    });
-  }
+  const posts = allBlogPosts;
 
   return {
-    props: { blogPosts: allProjectsWithPlaceholerImages },
+    props: {
+      blogPosts: posts,
+    },
   };
 };
 
