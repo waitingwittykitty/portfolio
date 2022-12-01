@@ -19,3 +19,4 @@ export { default as StorliLogo } from "./Storli";
 export { default as SecliLogo } from "./Secli";
 export { default as XingLogo } from "./Xing";
 export { default as ApptomatorLogo } from "./Apptomator";
+export { default as MetaVirusLogo } from "./MetaVirus";
