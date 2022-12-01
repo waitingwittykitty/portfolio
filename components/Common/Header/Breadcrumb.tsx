@@ -39,7 +39,7 @@ const Breadcrumb = (): JSX.Element => {
   return (
     <ol aria-label="breadcrumb" className="flex space-x-2">
       <BreadcrumbItem href="/" isRoot>
-        <Image src="/favicons/favicon-96x96.png" alt="logo" height={32} width={32} />
+        <Image src="/favicons/logo.png" alt="logo" height={32} width={32} />
       </BreadcrumbItem>
       {breadcrumbs &&
         breadcrumbs.map(({ href, label, isCurrent }) => (
