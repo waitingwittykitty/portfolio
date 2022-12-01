@@ -2,13 +2,9 @@ import { ReactNode } from "react";
 
 import {
   DiscordLogo,
-  // DevToLogo,
   GitHubLogo,
   StackoverflowLogo,
   XingLogo,
-  // HashnodeLogo,
-  // Twitterlogo,
-  // YouTubeLogo,
 } from "@/components/Shared/Icons";
 
 interface Social {
@@ -19,12 +15,6 @@ interface Social {
 }
 
 const socials: Social[] = [
-  // {
-  //   id: "twitter",
-  //   name: "Twitter",
-  //   url: "https://twitter.com/waitingwittykitty",
-  //   icon: <Twitterlogo color="#1DA1F2" />,
-  // },
   {
     id: "xing",
     name: "Xing",
@@ -49,24 +39,6 @@ const socials: Social[] = [
     url: "https://discordapp.com/users/Schilosaurus#4824",
     icon: <DiscordLogo />,
   },
-  // {
-  //   id: "youtube",
-  //   name: "YouTube",
-  //   url: "https://www.youtube.com/anishtechtutorials",
-  //   icon: <YouTubeLogo color="#ff0000" />,
-  // },
-  // {
-  //   id: "hashnode",
-  //   name: "Hashnode",
-  //   url: "https://hashnode.com/@hryschiller",
-  //   icon: <HashnodeLogo color="#2962ff" />,
-  // },
-  // {
-  //   id: "dev.to",
-  //   name: "Dev.to",
-  //   url: "https://dev.to/hryschiller",
-  //   icon: <DevToLogo color="#f0f0f0" />,
-  // },
 ];
 
 export default socials;
