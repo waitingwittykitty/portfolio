@@ -1,0 +1,204 @@
+---
+title: "Creating a Mock API in React"
+date: 2020-07-12
+image:
+  url: "/static/images/blog/react-api-call.png"
+  height: "1080"
+  width: "1920"
+---
+
+# Introduction
+
+Often, frontend developers can be frustrated when development of a prototype is stalled due to lack of an actual API. This could be due to the backend team taking too much time to develop the endpoint the application is to consume.
+
+In this blog, you will learn how to create your own mock endpoints using a local JSON file.
+
+This blog assumes that you have a basic understanding of APIs and at least _beginner_ proficiency working with JSON files and Node.js. You should also be familiar with testing APIs using either CURL or Postman.
+
+Suppose you are a budding frontend developer at a dev house in your local tech community. You need to develop a proof of concept (PoC) of a payroll system for a potential client. The client has requested to see a page with a list of employees fetched from an API. To accelerate development, you decide to develop a mock API.
+
+# Mock API Design
+
+The mock API endpoint could be `/employees` and the properties for each employee will consist of:
+
+1. id - A number that uniquely identifies the employee
+2. first_name - The first name of the employee
+3. last_name - The last name of the employee
+4. email - The email address of the employee
+5. gender - The gender of the employee
+6. status - The status of the employee
+
+# Setup
+
+To create the mock API, you are going to use a tool called JSON server. The tool is designed to help developers spin up REST APIs with CRUD functionalities very quickly.
+
+You can start by setting up your Node.js project. Create a directory called `json-mock-api`.
+
+```bash
+mkdir json-mock-api
+```
+
+Navigate to your project's root directory.
+
+```bash
+cd json-mock-api
+```
+
+Create a `package.json` file. The file is used to define the project's metadata, from the name of the project to the dependencies to commands to run tests and start the project. Below is a sample. Copy its contents and paste it into your `package.json` file:
+
+```json
+{
+  "name": "json-mock-api",
+  "version": "1.0.0",
+  "description": "A simple JSON mock API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
+You can then proceed to add the dependency needed to create the mock API, _json-server_. This can be done by running the following command on the project's root directory.
+
+```bash
+npm install json-server --save
+```
+
+# Creating the Mock API
+
+Your mock API will need a source for its data. Create an `src` folder, and then within it, create a `db.json` file. Your file structure should look something like this:
+
+```
+json-mock-api/
+    node_modules/
+    src/
+      db.json
+    package.json
+```
+
+The `db.json` file will act as your data source. There, you will define what data you want to retrieve from your mock API. This is where you define the sample employees and their various details as outlined earlier in the design. The first property, `employees`, on the JSON file is used to define the name of the endpoint.
+
+```json
+{
+  "employees": [
+    {
+      "id": 1,
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "johndoe@abc.com",
+      "gender": "Male",
+      "status": "Terminated"
+    },
+    {
+      "id": 2,
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "janedoe@abc.com",
+      "gender": "Female",
+      "status": "New"
+    },
+    {
+      "id": 3,
+      "first_name": "Alice",
+      "last_name": "Doe",
+      "email": "alicedoe@abc.com",
+      "gender": "Female",
+      "status": "Leaving"
+    },
+    {
+      "id": 4,
+      "first_name": "Bob",
+      "last_name": "Doe",
+      "email": "bobdoe@abc.com",
+      "gender": "Male",
+      "status": "Active"
+    }
+  ]
+}
+```
+
+To start up your API, run the command below in your terminal:
+
+```bash
+json-server --watch src/db.json
+```
+
+You should see your API running with an endpoint, `http:/localhost:3000/employees`
+
+# Testing the Mock API
+
+Go ahead and test your newly created endpoint on any API testing tool, such as Postman or CURL.
+
+To make a GET request for all employees, run the command below.
+
+```bash
+curl http://localhost:3000/employees
+```
+
+The response should be as below. Note that it is an array with all the employees.
+
+```json
+[
+  {
+    "id": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@abc.com",
+    "gender": "Male",
+    "status": "Terminated"
+  },
+  {
+    "id": 2,
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "janedoe@abc.com",
+    "gender": "Female",
+    "status": "Retired"
+  },
+  {
+    "id": 3,
+    "first_name": "Alice",
+    "last_name": "Doe",
+    "email": "alicedoe@abc.com",
+    "gender": "Female",
+    "status": "Suspended"
+  },
+  {
+    "id": 4,
+    "first_name": "Bob",
+    "last_name": "Doe",
+    "email": "bobdoe@abc.com",
+    "gender": "Male",
+    "status": "Active"
+  }
+]
+```
+
+To make a GET request for a specific employee, append the `id` of the employee to the endpoint `/employees/4`. You can then run the command below.
+
+```bash
+curl http://localhost:3000/employees/4
+```
+
+The response should be as below. Note that it is an object with the specific employee details of the employee whose id is 4.
+
+```json
+{
+  "id": 4,
+  "first_name": "Bob",
+  "last_name": "Doe",
+  "email": "bobdoe@abc.com",
+  "gender": "Male",
+  "status": "Active"
+}
+```
+
+# Conclusion
+
+You have now learned how to create mock API or web service endpoints using `json-server`.
+
+This blog, covered only GET requests. To further develop your skills and add to what you have learned in this blog, you can also learn how to use the `json-server` tool to develop endpoints with other methods like POST, PATCH, and DELETE. In addition, you can also add filtering and pagination to your endpoints.
+
+To learn more about the tool, have a look at the [JSON Server Documentation](https://github.com/typicode/json-server).
