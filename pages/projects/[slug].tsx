@@ -9,7 +9,7 @@ import IconFactory from "@/components/Shared/Icons/IconFactory";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "@/components/Common/MDXComponents";
 import CustomGiscus from "@/components/Shared/CustomGiscus";
-import { getGitHubOwnerAndRepoFromLink } from "@/utils/helpers";
+import { getGitHubOwnerAndRepoFromLink, isAbsoluteURL } from "@/utils/helpers";
 import { GitHubLogo } from "@/components/Shared/Icons";
 import getPreviewImageUrl from "@/utils/getPreviewImageURL";
 import { NextSeo } from "next-seo";
@@ -111,8 +111,6 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
             width={project.video.width}
             height={project.video.height}
             url={project.video.url}
-            placeholder="blur"
-            blurDataURL={projectImagePreview}
             alt={project.name}
             controls
           />
@@ -134,7 +132,11 @@ const ProjectPage: NextPage<ProjectPageProps> = ({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const project = allProjects.find(project => project.slug === params.slug);
 
-  const projectImagePreview = project.image ? await getPreviewImageUrl(project.image.url) : null;
+  const projectImagePreview = project.image
+    ? isAbsoluteURL(project.image.url)
+      ? await getPreviewImageUrl(project.image.url)
+      : project.image.url
+    : null;
 
   return {
     props: {

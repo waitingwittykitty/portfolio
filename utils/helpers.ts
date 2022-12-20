@@ -12,4 +12,8 @@ const cleanLink = (link: string): string => {
   return link.replace(/^https?:\/\//, "");
 };
 
-export { capitalize, getGitHubOwnerAndRepoFromLink, cleanLink };
+const isAbsoluteURL = (link: string): boolean => {
+  return /^(?:[a-z+]+:)?\/\//i.test(link);
+}
+
+export { capitalize, getGitHubOwnerAndRepoFromLink, cleanLink, isAbsoluteURL };

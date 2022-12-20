@@ -62,7 +62,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
         <div className="overflow-hidden rounded-lg md:w-72">
           <Link href={`/projects/${slug}`}>
             <div className="relative h-36 w-full transition duration-200 hover:opacity-60 md:h-full md:w-72">
-              {image && (
+              {image ? (
                 <NextImage
                   className="rounded-xl"
                   layout="fill"
@@ -71,9 +71,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
                   blurDataURL={placeholderImage}
                   alt={name}
                 />
-              )}
-
-              {video && (
+              ) : video && (
                 <ReactPlayer
                   width="100%"
                   height="100%"

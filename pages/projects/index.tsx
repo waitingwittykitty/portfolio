@@ -6,6 +6,7 @@ import { allProjects, Project } from "contentlayer/generated";
 import Link from "@/components/Shared/Link";
 import { ArrowRight } from "react-feather";
 import getPreviewImageUrl from "@/utils/getPreviewImageURL";
+import { isAbsoluteURL } from "@/utils/helpers";
 import { NextSeo } from "next-seo";
 
 export interface ProjectWithPlaceholderImage extends Project {
@@ -58,7 +59,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const allProjectsWithPlaceholderImages = [];
 
   for (const project of allProjects) {
-    const previewUrl = project.image ? await getPreviewImageUrl(project.image.url) : null;
+    const previewUrl = project.image
+      ? isAbsoluteURL(project.image.url)
+        ? await getPreviewImageUrl(project.image.url)
+        : project.image.url
+      : null;
 
     allProjectsWithPlaceholderImages.push({
       ...project,
