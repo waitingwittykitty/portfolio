@@ -21,3 +21,4 @@ export { default as XingLogo } from "./Xing";
 export { default as ApptomatorLogo } from "./Apptomator";
 export { default as MetaVirusLogo } from "./MetaVirus";
 export { default as QuizBuilderLogo } from "./QuizBuilder";
+export { default as Argon2idLogo } from "./Argon2id";

@@ -15,6 +15,7 @@ import {
   ApptomatorLogo,
   MetaVirusLogo,
   QuizBuilderLogo,
+  Argon2idLogo,
 } from ".";
 import StorliLogo from "./Storli";
 
@@ -55,6 +56,8 @@ const IconFactory = ({
       return <MetaVirusLogo {...otherProps} />;
     case "quiz-builder":
       return <QuizBuilderLogo {...otherProps} />;
+    case "argon2id":
+      return <Argon2idLogo {...otherProps} />;
     default:
       return <X />;
   }
