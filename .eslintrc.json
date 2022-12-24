@@ -1,10 +1,14 @@
 {
   "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
     "next/core-web-vitals",
     "google",
-    "prettier",
-    "eslint:recommended",
-    "plugin:react/recommended"
+    "prettier"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",

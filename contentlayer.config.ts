@@ -75,6 +75,11 @@ export const Project = defineDocumentType(() => ({
   filePathPattern: "projects/**/*.mdx",
   contentType: "mdx",
   fields: {
+    level: {
+      type: "number",
+      description: "The priority of the project",
+      required: false,
+    },
     name: {
       type: "string",
       description: "The name of the project",
