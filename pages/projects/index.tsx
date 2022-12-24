@@ -28,7 +28,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({
       />
       <h1 className="mb-8 text-2xl font-bold">Projects</h1>
       <div className="flex-col space-y-8">
-        {allProjectsWithPlaceholderImages.map(project => (
+        {allProjectsWithPlaceholderImages.sort((a, b) => (b.level || 0) - (a.level || 0)).map(project => (
           <ProjectCard
             key={project._id}
             name={project.name}

@@ -22,3 +22,5 @@ export { default as ApptomatorLogo } from "./Apptomator";
 export { default as MetaVirusLogo } from "./MetaVirus";
 export { default as QuizBuilderLogo } from "./QuizBuilder";
 export { default as Argon2idLogo } from "./Argon2id";
+export { default as SlaybooLogo } from "./Slayboo";
+export { default as RosoDBLogo } from "./RosoDB";

@@ -1,0 +1,206 @@
+---
+name: "RosoDB"
+description: "RosoDB is a database that uses a combination of SQL and JSON. It is easy to use, making it a great choice for those who need a simple database solution."
+link: "https://openbase.com/js/roso-db"
+githubLink: "https://github.com/babymonie/roso-db"
+iconName: "rosodb"
+level: 60
+badges:
+  - "Production"
+  - "JavaScript"
+  - "Node.js"
+  - "Express"
+  - "SQL"
+  - "JSON"
+image:
+  url: "/static/images/projects/rosodb/rosodb.jpg"
+  width: "1600"
+  height: "900"
+---
+
+## Installation
+
+Install rosodb with npm
+
+```bash
+  npm install rosodb
+```
+
+## Usage/Examples
+
+```bash
+  # Look at the commands
+
+  roso --help
+
+  # Run it
+
+  cause -h any hostname -p any port -username for connection -pa password for the connection
+```
+
+## How to create your own custom extensions/commands
+
+```javascript
+  /**
+   * Create a file and name it whatever you want and then paste this baseplate code in it,
+   * check the api.js docs below for more info.
+   */
+  const api = require('roso-db/api')
+  const command = {
+    name: 'create db',
+    description: 'Create a database',
+    args: ['databaseName'],
+    run: async (callback, args) => {
+      const databaseName = args.databaseName;
+
+      if (!api.databaseExists(databaseName)) {
+        api.createDatabase(databaseName);
+        callback({
+          success: true,
+        });
+      } else {
+        callback({
+          success: false,
+          error: `Database [${databaseName}] already exists`,
+        });
+      }
+    },
+  };
+
+  api.registerCommand(command);
+
+  api.executeCommand('create db', { databaseName: 'users' });
+
+  // output
+  {
+    success: true,
+  }
+
+  /**
+   * this command is a prebuilt command in rosodb so you can use it as a reference for your
+   * own commands.
+   */
+```
+
+## How to Import custom extensions/commands
+
+### drag and drop the extension file to the commands folder wherever the database server is running, and then restart the server commands will automatically be imported.
+
+## API Reference
+
+#### Get all databases
+
+```javascript
+api.getDatabases();
+```
+
+#### Check if database exists
+
+```javascript
+api.databaseExists(databaseName);
+```
+
+#### Create a database
+
+```javascript
+api.createDatabase(databaseName);
+```
+
+#### Delete a database
+
+```javascript
+api.dropDatabase(databaseName);
+```
+
+#### Get all tables in a database
+
+```javascript
+api.getTables(databaseName);
+```
+
+#### Check if table exists in a database
+
+```javascript
+api.tableExists(databaseName, tableName);
+```
+
+#### Create a table in a database
+
+```javascript
+api.createTable(databaseName, tableName, columns);
+```
+
+#### Delete a table in a database
+
+```javascript
+api.dropTable(databaseName, tableName);
+```
+
+#### Update a row in a database
+
+```javascript
+api.updateTable(databaseName, tableName, rowId, data);
+```
+
+#### Get a row by an id in a table in a database
+
+```javascript
+api.selectFromTableById(databaseName, tableName);
+```
+
+#### Get all rows in a table in a database
+
+```javascript
+api.getRows(databaseName, tableName);
+```
+
+#### Get a row by an query in a table in a database
+
+```javascript
+api.selectFromTableByQuery(databaseName, tableName, query);
+```
+
+#### Insert a row in a table in a database
+
+```javascript
+api.insertIntoTable(databaseName, tableName, row);
+```
+
+#### Delete a row in a table in a database, only takes id to make sure that you don't delete the wrong row
+
+```javascript
+api.deleteFromTable(databaseName, tableName, id);
+```
+
+#### Register a command
+
+```javascript
+api.registerCommand(command);
+```
+
+#### Execute a command
+
+```javascript
+api.executeCommand(commandName, args);
+```
+
+## Features
+
+- SQL Based commands
+- Fast
+- Light
+- JSON Storage
+
+## Appendix
+
+Clients for more languages are coming soon.
+
+## FAQ
+
+#### How good is the speed
+
+Decent, and better than CauseDB.
+
+#### Why should I use the database?
+
+First of all, made to be used on simple projects, and the client and server are hosted on the same device, meaning if you hosted an API in a server the database server would also, be hosted there.
