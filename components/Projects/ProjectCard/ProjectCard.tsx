@@ -39,7 +39,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
       <div
         className={cx(
           "flex flex-col space-y-8 rounded-xl border border-tertiary bg-secondary/50",
-          "p-4 md:h-48 md:flex-row md:space-y-0 md:space-x-8 group relative"
+          "p-4 md:flex-row md:space-y-0 md:space-x-8 group relative"
         )}
         ref={ref}
       >
@@ -59,9 +59,9 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
             </div>
           ))}
         </div>
-        <div className="overflow-hidden rounded-lg md:w-72">
+        <div className="overflow-hidden rounded-lg md:w-72 shrink-0 flex flex-col justify-center">
           <Link href={`/projects/${slug}`}>
-            <div className="relative h-36 w-full transition duration-200 hover:opacity-60 md:h-full md:w-72">
+            <div className="relative h-40 w-72 transition duration-200 hover:opacity-60">
               {image ? (
                 <NextImage
                   className="rounded-xl"
@@ -83,7 +83,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
             </div>
           </Link>
         </div>
-        <div className="flex flex-1 flex-col justify-between">
+        <div className="flex overflow-hidden flex-col justify-between">
           <div className="flex flex-col space-y-2">
             <Link
               href={`/projects/${slug}`}
@@ -94,12 +94,12 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
             <p className="text-sm text-gray-300">{description}</p>
             <div className="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-2 md:space-y-0">
               {link && (
-                <Link href={link} noHighlight>
+                <Link className="flex-1" href={link} noHighlight>
                   {cleanLink(link)}
                 </Link>
               )}
               {githubLink && (
-                <Link className="truncate" href={githubLink} icon={<GitHubLogo />} noHighlight>
+                <Link className="flex-1" href={githubLink} icon={<GitHubLogo />} noHighlight>
                   {getGitHubOwnerAndRepoFromLink(githubLink)}
                 </Link>
               )}
