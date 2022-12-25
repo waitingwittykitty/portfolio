@@ -19,7 +19,7 @@ const Projects = (): JSX.Element => {
             >
               <IconFactory
                 name={project.iconName}
-                className="h-12 w-12 rounded-xl bg-tertiary p-1.5 shadow-md"
+                className="h-12 w-12 rounded-xl bg-tertiary p-1.5 shadow-md shrink-0"
               />
               <div className="flex-col space-y-2">
                 <h3 className="flex flex-row items-center space-x-2 text-lg font-semibold">

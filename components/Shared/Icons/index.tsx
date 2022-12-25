@@ -24,3 +24,4 @@ export { default as QuizBuilderLogo } from "./QuizBuilder";
 export { default as Argon2idLogo } from "./Argon2id";
 export { default as SlaybooLogo } from "./Slayboo";
 export { default as RosoDBLogo } from "./RosoDB";
+export { default as OneSecondDiaryLogo } from "./OneSecondDiary";

@@ -18,6 +18,7 @@ import {
   Argon2idLogo,
   SlaybooLogo,
   RosoDBLogo,
+  OneSecondDiaryLogo,
 } from ".";
 import StorliLogo from "./Storli";
 
@@ -64,6 +65,8 @@ const IconFactory = ({
       return <SlaybooLogo {...otherProps} />;
     case "rosodb":
       return <RosoDBLogo {...otherProps} />;
+    case "one-second-diary":
+      return <OneSecondDiaryLogo {...otherProps} />;
     default:
       return <X />;
   }
