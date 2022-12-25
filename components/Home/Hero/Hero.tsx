@@ -14,14 +14,12 @@ const Hero = (): JSX.Element => {
         </h2>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
           He is a promising web developer who has shown outstanding talent in the web development field for 7 years.
-          Possessing a wide and in-depth knowledge of the web development field, he has developed numerous popular
-          websites and has attracted the attention of advanced companies. He excelled in problem-solving skills and
-          solved even the most complex problems in a short period of time, drawing the admiration of his fellow
-          developers by writing code that others could easily understand.
         </p>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
-          After graduating from a prestigious university, he has a lot of pride in himself, but he never looks down on
-          other people and maintains good relations with all the developers, so he has been well received by the public.
+          He was on the Dean&#39;s List for three years at a prestigious university, and after graduating from college, he joined four web development companies and contributed to their growth into competitive companies.
+        </p>
+        <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
+          He earned 8 HackerRank certificates and participated in the CSSBATTLE tournament where he placed 32nd in 2022.
         </p>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
           He, who has already achieved remarkable achievements in the field of web development, is now waiting for a
