@@ -19,7 +19,7 @@ const Hero = (): JSX.Element => {
           He was on the Dean&#39;s List for three years at a prestigious university, and after graduating, he joined four web development companies and contributed to their growth into competitive companies.
         </p>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
-          He earned 7 HackerRank certificates and participated in the CSSBATTLE tournament where he placed 30th in 2022.
+          He earned 11 HackerRank certificates and participated in the CSSBATTLE tournament where he placed 30th in 2022.
         </p>
         <p className="text-md will-change-opacity text-lg text-gray-300 will-change-transform">
           He, who has already achieved remarkable achievements in the field of web development, is now waiting for a
