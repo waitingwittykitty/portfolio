@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         web3: ["Syncopate", "sans-serif"],
       },
+      transitionTimingFunction: {
+        boop: "cubic-bezier(0.7, -0.5, 0.3, 1.5)",
+      },
       typography: theme => ({
         DEFAULT: {
           css: {
