@@ -1,3 +1,4 @@
+import cx from "classnames";
 import { allProjects } from ".contentlayer/generated";
 import IconFactory from "@/components/Shared/Icons/IconFactory";
 import Link from "@/components/Shared/Link";
@@ -11,7 +12,11 @@ const Projects = (): JSX.Element => {
         {allProjects.sort((a, b) => (b.level || 0) - (a.level || 0)).slice(0, 3).map((project) => (
           <div
             key={project._id}
-            className="group relative rounded-xl border-[1px] border-tertiary bg-secondary/50 p-4 transition duration-200 hover:border-accent md:hover:scale-[1.01]"
+            className={cx(
+              "group relative rounded-xl border-[1px] border-tertiary bg-secondary/50",
+              "p-4 transition-transform ease-boop duration-300 hover:border-accent",
+              "md:hover:scale-[1.01]",
+            )}
           >
             <Link
               href={`/projects/${project.slug}`}
@@ -30,7 +35,11 @@ const Projects = (): JSX.Element => {
             </Link>
             {(project.link || project.githubLink) && (
               <a
-                className="absolute -top-2 -right-2 hidden rounded-full border-[1px] border-accent bg-accent p-1.5 text-tertiary opacity-0 transition hover:bg-secondary hover:text-accent group-hover:block group-hover:opacity-100"
+                className={cx(
+                  "absolute -top-2 -right-2 hidden rounded-full border-[1px] border-accent",
+                  "bg-accent p-1.5 text-tertiary opacity-0 transition hover:bg-secondary",
+                  "hover:text-accent group-hover:block group-hover:opacity-100",
+                )}
                 href={project.link || project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"

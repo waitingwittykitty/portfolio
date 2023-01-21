@@ -5,6 +5,7 @@ import CommandBarInvoker from "@/components/Common/CommandBarInvoker";
 import CustomToaster from "@/components/Common/CustomToaster";
 import Header from "@/components/Common/Header";
 import KProvider from "@/components/Common/KProvider";
+import Decoration from "@/components/Common/Decoration";
 
 import useCircles from "store/circles";
 
@@ -22,6 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <Decoration />
       <Header />
       <KProvider>
         <NextNProgress
@@ -29,13 +31,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           startPosition={0.3}
           stopDelayMs={200}
           height={3}
-          options={{ showSpinner: false }}
         />
         <DefaultSeo {...SEO} />
         <SocialProfileJsonLd
           type="Person"
           name="Harry Schiller"
-          url="https://hryschiller.dev/"
+          url="https://harry-stage.vercel.app/"
           sameAs={[]}
         />
         {process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL &&

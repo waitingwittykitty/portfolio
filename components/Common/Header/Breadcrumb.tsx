@@ -39,7 +39,13 @@ const Breadcrumb = (): JSX.Element => {
   return (
     <ol aria-label="breadcrumb" className="flex space-x-2">
       <BreadcrumbItem href="/" isRoot>
-        <Image src="/favicons/logo.png" alt="logo" height={32} width={32} />
+        <Image
+          className="transition-transform duration-1000 ease-boop hover:rotate-90"
+          src="/favicons/logo.png"
+          alt="logo"
+          height={32}
+          width={32}
+        />
       </BreadcrumbItem>
       {breadcrumbs &&
         breadcrumbs.map(({ href, label, isCurrent }) => (
