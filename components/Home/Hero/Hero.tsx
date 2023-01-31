@@ -1,6 +1,8 @@
+import cx from "classnames";
 import Socials from "@/components/Shared/Socials";
 import NextImage from "next/image";
 import AvatarJPG from "public/static/images/avatar.png";
+import CircleText from "@/components/Shared/CircleText/CircleText";
 
 const Hero = (): JSX.Element => {
   return (
@@ -27,13 +29,27 @@ const Hero = (): JSX.Element => {
         </p>
         <Socials className="!mt-12" />
       </div>
-      <div className="will-change-opacity relative h-32 w-32 overflow-hidden rounded-full will-change-transform">
-        <NextImage
-          src={AvatarJPG}
-          layout="fill"
-          placeholder="blur"
-          alt="Harry Schiller"
-        />
+      <div className={cx(
+        "relative h-48 w-48 rounded-full flex justify-center items-center group",
+        "hover:ring-4 hover:ring-offset-4 hover:ring-offset-black transition-all ring-white",
+      )}>
+        <CircleText
+          className={cx(
+            "absolute top-1/2 left-1/2 w-0 h-0 group-hover:inset-0 z-10 text-white",
+            "transition-all duration-300 ease-boop group-hover:w-full group-hover:h-full",
+            "animate-spin-slow"
+          )}
+        >
+          • Full Stack Web Developer • 
+        </CircleText>
+        <div className="m-4 relative h-32 w-32 overflow-hidden rounded-full will-change-opacity will-change-transform">
+          <NextImage
+            src={AvatarJPG}
+            layout="fill"
+            placeholder="blur"
+            alt="Harry Schiller"
+          />
+        </div>
       </div>
     </div>
   );

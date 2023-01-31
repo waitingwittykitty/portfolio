@@ -6,7 +6,7 @@ const Footer = (): JSX.Element => {
     <footer className="mx-auto mb-16 flex max-w-3xl flex-col items-center space-y-4 px-8 text-center">
       <Socials small className="mb-8" />
       <p>
-        Powered with 💖 by{" "}
+        Powered with <span className="inline-block animate-bounce">💖</span> by{" "}
         <Link href="https://www.xing.com/profile/Harry_Schiller2">
           Harry Schiller
         </Link>
