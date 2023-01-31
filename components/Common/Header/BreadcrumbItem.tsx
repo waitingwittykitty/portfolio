@@ -28,7 +28,7 @@ const BreadcrumbItem = ({
           isCurrent
             ? "bg-gradient-to-br from-[#9ebd13] to-[#008552] bg-clip-text font-bold text-transparent"
             : "text-gray-300",
-          "transition duration-200 hover:opacity-80"
+          "transition-all duration-300 ease-boop hover:opacity-80 hover:scale-110 block",
         )}
         aria-current={isCurrent ? "page" : "false"}
         noGradientUnderline

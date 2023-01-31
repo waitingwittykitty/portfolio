@@ -38,8 +38,11 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
     return (
       <div
         className={cx(
-          "flex flex-col space-y-8 rounded-xl border border-tertiary bg-secondary/50",
-          "p-4 md:flex-row md:space-y-0 md:space-x-8 group relative"
+          "flex flex-col space-y-8 border border-tertiary bg-secondary/50",
+          "p-4 md:flex-row md:space-y-0 md:space-x-8 group relative",
+          "rounded-tl-huge rounded-bl-xl rounded-tr-xl rounded-br-huge",
+          "hover:rounded-tl-xl hover:rounded-bl-huge hover:rounded-tr-huge hover:rounded-br-xl",
+          "transition-all duration-300 ease-boop shadow-md shadow-cyan-600",
         )}
         ref={ref}
       >
@@ -51,7 +54,8 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
                 {
                   "text-green-400": badge === "Production",
                   "text-blue-400": badge === "Development"
-                }
+                },
+                "transition-all duration-500 hover:scale-110 ease-boop select-none",
               )}
               key={badge}
             >
@@ -59,7 +63,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectProps>(
             </div>
           ))}
         </div>
-        <div className="overflow-hidden rounded-lg md:w-72 shrink-0 flex flex-col justify-center">
+        <div className="overflow-hidden md:w-72 shrink-0 flex flex-col justify-center">
           <Link href={`/projects/${slug}`}>
             <div className="relative h-40 w-72 transition duration-200 hover:opacity-60">
               {image ? (

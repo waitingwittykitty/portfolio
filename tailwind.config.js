@@ -17,8 +17,16 @@ module.exports = {
       fontFamily: {
         web3: ["Syncopate", "sans-serif"],
       },
+      animation: {
+        "spin-slow": "spin 5s linear reverse infinite",
+      },
       transitionTimingFunction: {
         boop: "cubic-bezier(0.7, -0.5, 0.3, 1.5)",
+      },
+      borderRadius: {
+        special: "50% 20% / 20% 60%",
+        awesome: "10% 30% 45% 35%",
+        huge: "4rem",
       },
       typography: theme => ({
         DEFAULT: {
@@ -59,7 +67,7 @@ module.exports = {
               marginBottom: theme("spacing.4"),
               marginTop: theme("spacing.4"),
             },
-             "--tw-prose-code": theme("colors.red[300]"),
+            "--tw-prose-code": theme("colors.red[300]"),
             "--tw-prose-bold": theme("colors.accent"),
             "--tw-prose-quotes": theme("colors.accent"),
           },

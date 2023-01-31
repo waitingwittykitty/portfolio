@@ -1,18 +1,20 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import Snowfall from "react-snowfall";
 
 const Decoration = (): JSX.Element => {
-  const shouldShowSnow = useMemo(() => {
+  const [shouldShowSnow, setShouldShowSnow] = useState(false);
+
+  useEffect(() => {
     const month = (new Date()).getMonth();
 
-    return month < 3 || month > 10;
+    setShouldShowSnow(month < 3 || month > 10);
   }, []);
 
   return (
     <div>
       {shouldShowSnow && (
         <Snowfall
-          color='#dee4fd'
+          color="#dee4fd"
           snowflakeCount={200}
           radius={[0.5, 3]}
           speed={[-0.5, 2]}

@@ -14,8 +14,8 @@ const Projects = (): JSX.Element => {
             key={project._id}
             className={cx(
               "group relative rounded-xl border-[1px] border-tertiary bg-secondary/50",
-              "p-4 transition-transform ease-boop duration-300 hover:border-accent",
-              "md:hover:scale-[1.01]",
+              "p-4 transition-transform ease-boop duration-500 hover:border-accent",
+              "md:hover:scale-[1.05]",
             )}
           >
             <Link

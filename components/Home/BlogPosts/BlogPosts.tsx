@@ -11,7 +11,7 @@ const BlogPosts = ({ posts }: BlogPostsProps): JSX.Element => {
   return (
     <>
       <h2 className="mb-8 text-3xl font-bold">Blog Posts</h2>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         {posts.slice(0, 4).map(post => (
           <BlogPostCard
             key={post._id}
