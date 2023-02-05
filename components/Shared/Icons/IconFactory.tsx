@@ -19,6 +19,7 @@ import {
   SlaybooLogo,
   RosoDBLogo,
   OneSecondDiaryLogo,
+  NIHLogo,
 } from ".";
 import StorliLogo from "./Storli";
 
@@ -55,6 +56,8 @@ const IconFactory = ({
       return <SecliLogo {...otherProps} />;
     case "apptomator":
       return <ApptomatorLogo {...otherProps} />;
+    case "nih":
+      return <NIHLogo {...otherProps} />;
     case "metavirus":
       return <MetaVirusLogo {...otherProps} />;
     case "quiz-builder":
